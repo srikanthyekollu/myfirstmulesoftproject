@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="564a58e4-38da-42ec-866f-074b04595781" >
+		<http:listener-connection host="0.0.0.0" port="8082" />
+	</http:listener-config>
+	<flow name="myfirstmulesoftprojectFlow" doc:id="30bd794f-d3f5-42f9-9d04-574fbef5928b" >
+		<http:listener doc:name="Listener" doc:id="2efd457b-ec54-4349-bb0b-15f1b4a51211" config-ref="HTTP_Listener_config" path="/myfirstmuleproject"/>
+		<set-payload value='"SUCCESS"' doc:name="Set Payload" doc:id="b27cac54-0bd2-423d-8a41-d96eba78f2d4" />
+		<logger level="INFO" doc:name="Logger" doc:id="61ab237d-148f-43d3-9511-870dd51918fd" message='"Successful message processed"'/>
+	</flow>
+</mule>
